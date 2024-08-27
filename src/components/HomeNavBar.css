@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&display=swap');
+
+
+
+nav {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+
+nav .title {
+    font-size: 1.65rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: black;
+    text-wrap: nowrap;
+    font-family: "Italiana", sans-serif;
+    font-weight: 500;
+    
+}
+
+
+nav .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.25rem;
+    height: 1.75rem;
+    
+}
+
+nav .hamburger:hover {
+    cursor: pointer;
+}
+
+span {
+    display: block;
+    width: 90%;
+    align-self: center;
+    height: 2px;
+    background-color: #e1e1e1;
+    margin: -5px 0;
+    justify-self: center;
+    transform: translate(5%); 
+    z-index: -1;
+}
+
+@media (max-width: 950px) {
+
+    nav .title {
+        position: relative;
+        
+    }
+
+    nav .hamburger {
+        display: block;
+        height: 100%;
+        margin-left: auto;
+        margin-right: 15px;
+        height: 30px;
+        /* position: relative; */
+    }
+
+    nav {
+        flex-direction: row;
+        align-items: center;
+        /* justify-content: space-between; */
+    }
+
+
+
+
+}
+
+
