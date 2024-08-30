@@ -8,6 +8,8 @@ nav {
     justify-content: center;
     align-items: center;
     height: 4rem;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 nav .title {
@@ -41,7 +43,7 @@ span {
     align-self: center;
     height: 2px;
     background-color: #e1e1e1;
-    margin: -5px 0;
+    margin: -5px;
     justify-self: center;
     transform: translate(5%); 
     z-index: -1;

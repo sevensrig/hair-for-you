@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.landingPage {
+    background-color: #f1f1f1;
+    width: 100%;
+    padding: 2rem 0 0 0;
+    display: flex;
+    flex-grow: none;
+    justify-content: center;
+}
+
+.imageAndLocation {
+    display: flex;
+    flex-direction: column;
+}
+
+.locationBox{
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-right: 7%;
+}
+
+.image{
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-right: 1%;
+}
+
+.textContainer {
+    
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    width: 17rem;
+}
+
+.textContainer .bookButton {
+    flex: 0 10px 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    background-color:#F19A3E;
+    height: 60px;
+}
+
+.textContainer .bookButton .faScissors {
+    padding-left: 5px;
+
+}
+
+.textContainer p {
+    line-height: 20px;
+}
+
+.textContainer h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.textContainer h1, .textContainer h2, .textContainer p {
+    font-weight: 400;
+    font-family: "Playfair Display", serif;
+}
+
+img {
+    width: 70%;
+    height: auto;
+}
+
