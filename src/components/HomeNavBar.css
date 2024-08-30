@@ -46,7 +46,7 @@ span {
     margin: -5px;
     justify-self: center;
     transform: translate(5%); 
-    z-index: -1;
+
 }
 
 @media (max-width: 950px) {
