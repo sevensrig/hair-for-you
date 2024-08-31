@@ -21,7 +21,6 @@
 }
 
 
-
 .textContainer {
     
     padding-left: 2rem;
@@ -81,6 +80,10 @@
 
     .imageAndLocation .locationBox {
         display: none;
+    }
+    
+    .imageAndLocation {
+        min-height: 22rem;
     }
 
     .textContainer {

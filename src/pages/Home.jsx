@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
-import LandingPage from '../components/LandingPage';
+import LandingPage from './LandingPage';
+import Services from './Services';
 
 function Home() {
-    const [contact, setContact] = useState(false);
-    const [services, setServices] = useState(false);
+
 
     return (
-        <LandingPage />
+        <>
+            <LandingPage />
+            <Services />
+        </>
+
     );
 }
 

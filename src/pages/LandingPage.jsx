@@ -1,8 +1,7 @@
 import React from 'react'
-import LocationBox from './LocationBox';
+import LocationBox from '../components/LocationBox';
 import './LandingPage.css'
 import { FaScissors } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
