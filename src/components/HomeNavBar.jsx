@@ -19,7 +19,7 @@ function HomeNavBar(props) {
                 </div>
                 <FaBars className = 'hamburger' onClick = {handleHamburgerClick}/>
             </nav> 
-            <span />
+            <span className='navSpan'/>
         </div>
         
     );

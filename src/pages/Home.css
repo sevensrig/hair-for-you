@@ -1,0 +1,4 @@
+div .Home {
+    display: flex;
+    flex-direction: column;
+}

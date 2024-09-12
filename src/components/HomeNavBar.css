@@ -13,6 +13,7 @@ nav {
 }
 
 nav .title {
+
     font-size: 1.65rem;
     margin: 1rem;
     text-decoration: none;
@@ -37,7 +38,7 @@ nav .hamburger:hover {
     cursor: pointer;
 }
 
-span {
+span.navSpan {
     display: block;
     width: 90%;
     align-self: center;
