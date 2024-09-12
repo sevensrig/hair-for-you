@@ -2,6 +2,10 @@
     font-family: "Inter", sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -39,4 +43,12 @@ p {
     font-size: 25px;
     margin-top: 15px;
     margin-left: 20px;
+    color: black;
+}
+
+a:hover{
+    .pin {
+        color: #F19A3E;
+
+    }
 }
