@@ -27,6 +27,7 @@ div.menuList {
     
     ul li a:hover {
         color: #F19A3E;
+        cursor: pointer;
     }
     
     @media (max-width: 950px) {
