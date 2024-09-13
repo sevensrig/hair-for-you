@@ -18,6 +18,12 @@ a {
     border-style: solid; 
 }
 
+div.contactLocation {
+    background-color: white;
+    display: flex;
+
+}
+
 .container .address {
     align-self: center;
     margin-top: 3px;
