@@ -3,6 +3,7 @@ import LandingPage from './LandingPage';
 import Services from './Services';
 import './Home.css'
 import Contact from './Contact';
+import Footer from '../components/Footer';
 
 function Home() {
 
@@ -12,6 +13,7 @@ function Home() {
             <LandingPage />
             <Services />
             <Contact />
+            <Footer />
         </div>
 
     );
