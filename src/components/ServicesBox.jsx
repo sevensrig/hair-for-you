@@ -13,9 +13,12 @@ function ServicesBox(props) {
             </div>
             <span/>
             {serviceAndPrice.map(([service, price]) => (
-            <div>
-                <p>{service}</p>
-                <p>{price}</p>
+            <div className={props.use ? 'booking' : 'display'}>
+                <div style={{display:"flex"}}>
+                    <input type='checkbox' onChange = {() => props.handleCheck(service)} checked={props.checkedService===service}/>
+                    <p style={{ lineHeight:"26px"}}>{service}</p>
+                </div>
+                <p style={{ lineHeight:"26px"}}>{price}</p>
             </div>
 
         ))}

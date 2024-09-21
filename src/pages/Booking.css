@@ -1,0 +1,8 @@
+div.Booking {
+    background-color: var(--bone);
+    text-align: center;
+    h1 {
+        font-family: var(--Playfair);
+        font-weight: 450;
+    }
+}

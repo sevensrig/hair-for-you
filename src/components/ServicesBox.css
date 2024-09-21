@@ -10,15 +10,43 @@ div.serviceListContainer {
     overflow:scroll;
 
     div.boxName{
-        padding: 0 1rem 0 1rem;
+        padding: 0 0.5rem 0 0.5rem;
         display: flex;
 
         .mg{
-            transform:translate(0, 50%);
+            transform:translate(0, 100%);
         }
         justify-content: space-between;
 
 
+    }
+
+    div.display {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    div.display input {
+        display: none;
+    }
+
+    div.booking {
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            accent-color: var(--carrot-orange);
+            cursor: pointer;
+        }
+        padding: 2rem 3rem 1rem 3rem;
+        justify-self: center;
+        display: flex;
+        p {
+            margin: 0 0 0 auto;
+            justify-items: center;
+        }
     }
 
     span{

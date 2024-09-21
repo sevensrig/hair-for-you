@@ -8,7 +8,6 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-     <HomeNavBar />
      <Routes>
         <Route path = '/' element = { <Home /> } />
         <Route path = "/book-an-appointment" element = { <Booking /> }/>

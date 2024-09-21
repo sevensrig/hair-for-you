@@ -2,9 +2,15 @@
     font-family: "Inter", sans-serif;
 }
 
-a {
-    text-decoration: none;
+p {
+    font-size: smaller;
+    color: #757575;
+    font-weight: 300;
 }
+
+a.locationBoxa {
+    text-decoration: none;
+
 
 .container {
     display: flex;
@@ -57,4 +63,6 @@ a:hover{
         color: #F19A3E;
 
     }
+}
+
 }
