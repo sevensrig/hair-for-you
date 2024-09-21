@@ -5,9 +5,19 @@
   flex-direction: column; 
 }
 
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --carrot-orange: #F19A3E;
+  --carrot-orange-darker: #ec9333;
   --border-color: #D9D9D9;
   --bone: #F0EBE4;
   --Playfair: "Playfair Display";
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

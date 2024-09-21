@@ -19,7 +19,7 @@ function Services(props) {
     const servicesListOrganization = {'Hair Services':hairServices, 'Bangs':bangsServices, 'Facial Waxing':facialServices, 'Beard Services':beardServices}
     return (
 
-        <div className = 'Services' id = "Services">
+        <div style={props.use==='booking' ? {paddingBottom:'1rem'}:{}} className = 'Services' id = "Services">
             <h1 style={props.use==='booking' ? {display:"none"}:{}}>Services</h1>
             <h3 style={props.use==='booking' ? {display:"none"}:{}}>Check out what services we have to offer!</h3>
             <ServicesBar handleClick = {setActiveServiceName} activeServiceName = {activeServiceName} servicesList = {servicesOffered}/>

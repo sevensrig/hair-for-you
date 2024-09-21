@@ -1,0 +1,37 @@
+div.chooseService {
+    display: flex;
+    flex-direction: column;
+    .backButton {
+        margin-top: auto;
+        margin-bottom: 1rem;
+    }
+
+    div.buttons {
+        background-color: var(--bone);
+    }
+
+
+        button.selectDate {
+            background-color: var(--carrot-orange);
+            border-style: none;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 7px;
+            color: white;
+            line-height: 0;
+            width: 148px;
+            height: 67px;
+            padding: 0;
+        }
+    
+        button.selectDate:hover {
+            background-color: var(--carrot-orange-darker)
+        }
+    
+        .calendar {
+            margin-left: 5px;
+            font-size: medium;
+            transform: translate(0, 12%);
+        }
+
+}

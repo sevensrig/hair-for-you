@@ -71,7 +71,7 @@
 }
 
 .textContainer .bookButton:hover {
-    background-color: #e3913a;
+    background-color: var(--carrot-orange-darker);
     cursor: pointer;
 
 }
