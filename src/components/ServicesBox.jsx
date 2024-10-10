@@ -12,8 +12,8 @@ function ServicesBox(props) {
                 <FaMagnifyingGlass className='mg'/>
             </div>
             <span/>
-            {serviceAndPrice.map(([service, price]) => (
-            <div className={props.use ? 'booking' : 'display'}>
+            {serviceAndPrice.map(([service, price, index]) => (
+            <div id = {index} className={props.use ? 'booking' : 'display'}>
                 <div style={{display:"flex"}}>
                     <input type='checkbox' onChange = {() => props.handleCheck(service)} checked={props.checkedService===service}/>
                     <p style={{ lineHeight:"26px"}}>{service}</p>
