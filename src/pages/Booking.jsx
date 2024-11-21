@@ -10,6 +10,7 @@ import ClientForm from './ClientForm';
 function Booking () {
     const [ selectedService, setSelectedService ] = useState('');
     const [ selectedDate, setSelectedDate ] = useState('');
+    const [ selectedTime, setSelectedTime ] = useState('');
     const [ previousPage, setPreviousPage ] = useState();
     const [ activePage, setActivePage ] = useState('chooseService');
     const [ clientName, setClientName ] = useState('');
@@ -24,7 +25,7 @@ function Booking () {
                 );
             case 'chooseDate':
                 return (
-                    <ChooseDate handleNextButton = {() => setActivePage('clientForm')} 
+                    <ChooseDate selectedTime = {selectedTime} setSelectedDate = {setSelectedDate} setSelectedTime = {setSelectedTime} handleNextButton = {() => setActivePage('clientForm')} 
                     handleBackButton = {() => setActivePage('chooseService')}/>
                 );
             case 'clientForm':

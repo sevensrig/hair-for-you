@@ -1,4 +1,18 @@
 div.chooseDate {
+
+    div.timesContainer{
+        button{
+            margin: 0.5rem;
+            padding: 1rem 1.5rem 1rem 1.5rem;
+            border-radius: 7px;
+            border: #d9d9d9;;
+            border-style: solid;
+            border-width:1px;
+        }
+        button:hover{
+            cursor:pointer;
+        }
+    }
     button.nextButton {
         background-color: var(--carrot-orange);
         border-style: none;

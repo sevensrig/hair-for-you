@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers') // change path once controllers implemented
+const appointmentController = require('../controllers/') // change path once controllers implemented
 
-router.get('/check-date-time/:date', (request, response) => {
-    
-});
+router.get('/check-date-time', appointmentController.getNonFreeTimes);
 
 module.exports = router;
