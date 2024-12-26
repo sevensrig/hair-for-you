@@ -14,8 +14,7 @@ function ChooseDate(props) {
     <div className='chooseDate'>
         <div className='timesAndCalendarContainer'>
             <BookingCalendar />
-            <span style = {{marginLeft:"10px", display: "inline-block", width:"0.25rem", height:"27rem",
-                backgroundColor:"black", justifySelf:"center"}}/>
+            <span className = 'divider'/>
         <div className='timesContainer'>
             {times.map((time, index) => 
             <button style = {props.selectedTime === time ? {backgroundColor:'#F19A3E'}:{}} 

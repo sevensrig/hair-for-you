@@ -1,5 +1,13 @@
 div.chooseDate {
     div.timesAndCalendarContainer{
+        span.divider {
+            margin-left: 2rem;
+            display: inline-block;
+            width: 0.25rem;
+            height: 27rem;
+            background-color: black;
+            justify-self: center;
+        }
         margin: 3rem;
         display: flex;
         overflow: visible;
@@ -7,7 +15,7 @@ div.chooseDate {
             align-items: center;
             button{
                 margin: 0.5rem;
-                padding: 1.5rem 2rem 1.5rem 2rem;
+                padding: 1.5rem 2rem;
                 border-radius: 7px;
                 border: #d9d9d9;;
                 border-style: solid;
@@ -27,8 +35,7 @@ div.chooseDate {
         text-align: center;
         border-radius: 7px;
         color: white;
-
-        padding: 1.5rem 3rem 1.5rem 3rem;
+        padding: 1.5rem 3rem;
     }
 
     button:hover {
@@ -39,5 +46,45 @@ div.chooseDate {
         margin-right: 5px;
         font-size: medium;
         transform: translate(0, 20%);
+    }
+}
+
+@media (max-width: 760px) {
+    div.chooseDate {
+        div.timesAndCalendarContainer {
+            div.bookingCalendar {
+                div.react-calendar {
+                    margin: 0 auto;
+                }
+            }
+            flex-direction: column;
+            span.divider {
+                margin: 1rem 0;
+                display: inline-block;
+                width: 80%;
+                height: 3px;
+                background-color: black;
+                align-self: center;
+            }
+            div.timesContainer{
+                align-items: center;
+                button{
+                    margin: 0.5rem;
+                    padding: 1rem 1.5rem;
+                    border-radius: 7px;
+                    border: #d9d9d9;;
+                    border-style: solid;
+                    border-width:1px;
+                }
+                button:hover{
+                    cursor:pointer;
+                }
+            }
+        }
+        div.buttons {
+            margin-bottom: 1rem;
+        }
+        
+
     }
 }
