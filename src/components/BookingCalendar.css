@@ -1,4 +1,5 @@
 div.bookingCalendar {
+  align-content: center;
     .react-calendar {
         width: 350px;
         max-width: 100%;
