@@ -11,7 +11,6 @@ function Booking () {
     const [ selectedService, setSelectedService ] = useState('');
     const [ selectedDate, setSelectedDate ] = useState('');
     const [ selectedTime, setSelectedTime ] = useState('');
-    const [ previousPage, setPreviousPage ] = useState();
     const [ activePage, setActivePage ] = useState('chooseService');
     const [ clientName, setClientName ] = useState('');
     const [ clientEmail, setClientEmail ] = useState('');
@@ -30,7 +29,9 @@ function Booking () {
                 );
             case 'clientForm':
                 return (
-                    <ClientForm serviceChosen = {selectedService} clientEmail = {clientEmail} clientName = {clientName}/> 
+                    <ClientForm dataChosen = {selectedDate} serviceChosen = {selectedService} timeChosen = {selectedTime}
+                    clientEmail = {clientEmail} clientName = {clientName} handleNextButton = {() => setActivePage('chooseDate')}
+                    handleBackButton = {() => setActivePage('chooseDate')}/> 
                 );
             default:
                 return <div></div>;

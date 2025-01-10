@@ -3,6 +3,7 @@ import './ChooseDate.css'
 import BookingCalendar from '../components/BookingCalendar';
 import BackButton from '../components/BackButton';
 import { FaArrowRight } from 'react-icons/fa6';
+import ButtonsRow from '../components/ButtonsRow';
 
 
 
@@ -22,13 +23,7 @@ function ChooseDate(props) {
             )}
         </div>
         </div>
-        <div className = 'buttons' style={{display:"flex", justifyContent:'space-between', paddingLeft:'1rem', paddingRight:'1rem'}}>
-        <BackButton onClick = {props.handleBackButton}/>
-        <button className = 'nextButton' onClick={props.handleNextButton}>
-            Next
-            <FaArrowRight className='arrowRight' />
-            </button>
-        </div>
+        <ButtonsRow handleBackButton = {props.handleBackButton} handleNextButton={props.handleNextButton}/>
     </div>
     );
 }
