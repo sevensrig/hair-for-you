@@ -1,0 +1,9 @@
+button.nextButton {
+    background-color: var(--carrot-orange);
+    border-style: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 7px;
+    color: white;
+    padding: 1.5rem 3rem;
+}
