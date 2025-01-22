@@ -19,8 +19,8 @@ function Booking () {
         switch (activePage) {
             case 'chooseService':
                 return (
-                    <ChooseService handleSelectDateButton = {selectedService==="" ? null : () => setActivePage('chooseDate')} 
-                    selectedService = {selectedService} setSelectedService = {setSelectedService}/>
+                    <ChooseService handleNextButton = {selectedService==="" ? null : () => setActivePage('chooseDate')} 
+                    selectedService = {selectedService} setSelectedService = {setSelectedService} />
                 );
             case 'chooseDate':
                 return (
@@ -30,8 +30,12 @@ function Booking () {
             case 'clientForm':
                 return (
                     <ClientForm dataChosen = {selectedDate} serviceChosen = {selectedService} timeChosen = {selectedTime}
-                    clientEmail = {clientEmail} clientName = {clientName} handleNextButton = {() => setActivePage('chooseDate')}
+                    clientEmail = {clientEmail} clientName = {clientName} handleNextButton = {() => setActivePage('confirmation')}
                     handleBackButton = {() => setActivePage('chooseDate')}/> 
+                );
+            case 'confirmation':
+                return(
+                    <div>hi</div>
                 );
             default:
                 return <div></div>;

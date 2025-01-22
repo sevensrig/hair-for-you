@@ -6,4 +6,6 @@ button.nextButton {
     border-radius: 7px;
     color: white;
     padding: 1.5rem 3rem;
+    line-height: 0px;
+
 }

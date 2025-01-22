@@ -2,6 +2,7 @@ import React from 'react';
 import './ChooseService.css';
 import Services from './Services';
 import BackButton from '../components/BackButton';
+import ButtonsRow from '../components/ButtonsRow.jsx';
 import { useNavigate } from 'react-router-dom';
 import { FaCalendar } from 'react-icons/fa6';
 
@@ -14,10 +15,8 @@ function ChooseService(props) {
     return (
         <div className='chooseService'>
             <Services selectedService = {props.selectedService} setSelectedService = {props.setSelectedService} use = 'booking'/>
-            <div className='buttons' style={{display:"flex", justifyContent:'space-between', paddingLeft:'1rem', paddingRight:'1rem'}}>
-                <BackButton onClick = {handleBackButtonClick} className='backButton'/>
-                <button onClick = {props.handleSelectDateButton}className='selectDate'>Select Date<FaCalendar className='calendar'/></button>
-            </div>
+            <ButtonsRow handleBackButton = {handleBackButtonClick} handleNextButton={props.handleNextButton} 
+            nextButtonContent={<div>Choose Date<FaCalendar/></div>}/>
 
         </div>
     );

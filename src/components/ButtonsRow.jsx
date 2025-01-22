@@ -5,11 +5,10 @@ import './ButtonsRow.css'
 
 function ButtonsRow(props) {
     return (
-        <div className = 'buttons' style={{display:"flex", justifyContent:'space-between', paddingLeft:'1rem', paddingRight:'1rem'}}>
+        <div className = 'buttons' style={{display:"flex", justifyContent:'space-between', paddingLeft:'1rem', paddingRight:'1rem', marginBottom:"1rem"}}>
         <BackButton onClick = {props.handleBackButton}/>
         <button className = 'nextButton' onClick={props.handleNextButton}>
-            Next
-            <FaArrowRight className='arrowRight'/>
+            {props.nextButtonContent}
             </button>
         </div>
     )

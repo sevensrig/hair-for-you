@@ -23,7 +23,7 @@ function ChooseDate(props) {
             )}
         </div>
         </div>
-        <ButtonsRow handleBackButton = {props.handleBackButton} handleNextButton={props.handleNextButton}/>
+        <ButtonsRow handleBackButton = {props.handleBackButton} handleNextButton={props.handleNextButton} nextButtonContent={<div>Next<FaArrowRight className='arrowRight'/></div>}/>
     </div>
     );
 }
