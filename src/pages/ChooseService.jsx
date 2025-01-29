@@ -1,7 +1,6 @@
 import React from 'react';
 import './ChooseService.css';
 import Services from './Services';
-import BackButton from '../components/BackButton';
 import ButtonsRow from '../components/ButtonsRow.jsx';
 import { useNavigate } from 'react-router-dom';
 import { FaCalendar } from 'react-icons/fa6';
