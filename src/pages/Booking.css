@@ -3,7 +3,7 @@ div.Booking {
     height: 100vh;
     background-color: var(--bone);
     text-align: center;
-    overflow:scroll;
+    overflow-y:auto;
     h1 {
         font-family: var(--Playfair);
         font-weight: 450;
