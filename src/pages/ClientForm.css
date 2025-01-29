@@ -1,0 +1,32 @@
+form.formBox{
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width:auto;
+    margin: 5rem;
+    width: 40%;
+    min-width: 18rem;
+
+    padding-left: 2rem;
+    padding-right: auto;
+    border-radius: 10px;
+    text-align: left;
+
+    div.label {
+        label{
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 1rem;
+            input {
+                margin-right: 1rem;
+            }
+        }
+
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
