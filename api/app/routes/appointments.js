@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const appointmentController = require('../controllers/') // change path once controllers implemented
+import { Router } from 'express'
+import { getAvailableTimes } from '../controllers/appointments.js'
 
-router.get('/check-date-time', appointmentController.getNonFreeTimes);
+const router = Router()
 
-module.exports = router;
+router.get('/availability', getAvailableTimes)
+
+export default router
