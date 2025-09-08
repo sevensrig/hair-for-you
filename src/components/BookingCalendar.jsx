@@ -3,7 +3,7 @@ import { Calendar } from 'react-calendar';
 import './BookingCalendar.css'
 import 'react-calendar/dist/Calendar.css';
 
-function BookingCalendar() {
+function BookingCalendar({ selectedDate, onChangeDate }) {
     const tileDisabled = ({ date, view }) => {
         if (view === 'month') {
           const day = date.getDay();
@@ -11,9 +11,19 @@ function BookingCalendar() {
         }
         return false;
       };
+
     return (
         <div className='bookingCalendar'>
-            <Calendar minDetail = "month" prev2Label = {null}  next2Label = {null} minDate = {new Date()} className = 'react-calendar' tileDisabled={tileDisabled}/>
+            <Calendar
+                minDetail="month"
+                prev2Label={null}
+                next2Label={null}
+                minDate={new Date()}
+                className='react-calendar'
+                tileDisabled={tileDisabled}
+                onChange={onChangeDate}
+                value={selectedDate}
+            />
         </div>
     );
 }
