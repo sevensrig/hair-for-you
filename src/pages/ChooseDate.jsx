@@ -39,6 +39,7 @@ function ChooseDate(props) {
     }
 
     useEffect(() => {
+        props.setSelectedDate(formatDate(selectedDate))
         fetchAvailability(selectedDate)
     }, [selectedDate])
 

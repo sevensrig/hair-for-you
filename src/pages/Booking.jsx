@@ -4,6 +4,7 @@ import './Booking.css'
 import { useState } from 'react';
 import ChooseDate from './ChooseDate';
 import ClientForm from './ClientForm';
+import Confirmation from './Confirmation';
 
 
 
@@ -29,13 +30,16 @@ function Booking () {
                 );
             case 'clientForm':
                 return (
-                    <ClientForm dataChosen = {selectedDate} serviceChosen = {selectedService} timeChosen = {selectedTime}
-                    clientEmail = {clientEmail} clientName = {clientName} handleNextButton = {() => setActivePage('confirmation')}
-                    handleBackButton = {() => setActivePage('chooseDate')}/> 
+                    <ClientForm dateChosen={selectedDate} serviceChosen={selectedService} timeChosen={selectedTime}
+                    clientEmail={clientEmail} clientName={clientName}
+                    setClientName={setClientName} setClientEmail={setClientEmail}
+                    handleNextButton={() => setActivePage('confirmation')}
+                    handleBackButton={() => setActivePage('chooseDate')}/>
                 );
             case 'confirmation':
                 return(
-                    <div>hi</div>
+                    <Confirmation serviceChosen={selectedService} dateChosen={selectedDate}
+                    timeChosen={selectedTime} clientName={clientName} clientEmail={clientEmail} />
                 );
             default:
                 return <div></div>;
