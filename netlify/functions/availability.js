@@ -79,17 +79,29 @@ function intervalsOverlapAny(interval, intervals) {
 async function getAvailableTimes(req, res) {
 	try {
 		const { date } = req.query // expected YYYY-MM-DD
+		console.log('Getting availability for date:', date)
+
 		if (!date) {
+			console.log('Missing date parameter')
 			return res.status(400).json({ error: 'Missing required query param: date (YYYY-MM-DD)' })
 		}
 
 		// If Google is not configured, serve computed demo slots
+		console.log('Checking calendar configuration...')
+		console.log('Calendar ID:', calendarId ? 'present' : 'missing')
+		console.log('Service account email:', serviceAccountEmail ? 'present' : 'missing')
+		console.log('Service account key:', serviceAccountKey ? 'present' : 'missing')
+
 		const client = await getCalendarClient()
+		console.log('Calendar client:', client ? 'created' : 'failed')
+
 		if (!calendarId || !client) {
+			console.log('Using demo slots since Google not configured')
 			const demo = computeSlotsForDate(date).map(slot => `${slot.start.toFormat('h:mm a')} - ${slot.end.toFormat('h:mm a')}`)
 			return res.json({ date, timezone, times: demo, demo: true })
 		}
 
+		console.log('Querying Google Calendar freebusy API...')
 		const dayStart = DateTime.fromISO(date, { zone: timezone }).startOf('day')
 		const dayEnd = dayStart.endOf('day')
 
@@ -102,6 +114,8 @@ async function getAvailableTimes(req, res) {
 			}
 		})
 
+		console.log('Freebusy data received:', data)
+
 		const busyWindows = (data.calendars?.[calendarId]?.busy || []).map(b => {
 			const start = DateTime.fromISO(b.start, { zone: 'utc' }).setZone(timezone)
 			const end = DateTime.fromISO(b.end, { zone: 'utc' }).setZone(timezone)
@@ -113,9 +127,10 @@ async function getAvailableTimes(req, res) {
 
 		const times = available.map(slot => `${slot.start.toFormat('h:mm a')} - ${slot.end.toFormat('h:mm a')}`)
 
+		console.log('Returning available times:', times)
 		return res.json({ date, timezone, times })
 	} catch (err) {
-		console.error(err)
+		console.error('Error in getAvailableTimes:', err)
 		return res.status(500).json({ error: 'Failed to fetch availability', details: err?.message })
 	}
 }
@@ -150,12 +165,24 @@ function createResponse() {
 }
 
 export const handler = async (event) => {
+  console.log('Availability function called with:', event.queryStringParameters)
+
   const req = {
     query: event.queryStringParameters || {},
     body: event.body ? JSON.parse(event.body) : {}
   }
   const res = createResponse()
 
-  await getAvailableTimes(req, res)
-  return res.response
+  try {
+    await getAvailableTimes(req, res)
+    console.log('Function completed successfully')
+    return res.response
+  } catch (error) {
+    console.error('Function error:', error)
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Internal server error', details: error.message })
+    }
+  }
 }
