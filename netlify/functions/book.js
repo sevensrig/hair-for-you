@@ -10,7 +10,10 @@ const lunchStartHour = parseInt(process.env.LUNCH_START_HOUR || '12', 10)
 const lunchEndHour = parseInt(process.env.LUNCH_END_HOUR || '13', 10)
 
 const serviceAccountEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
-const serviceAccountKey = (process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || '').replace(/\\n/g, '\n')
+const serviceAccountKey = (process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || '')
+	.replace(/\\n/g, '\n')  // Convert escaped newlines
+	.replace(/"/g, '')      // Remove any quotes
+	.trim()                 // Remove whitespace
 const credentialsKeyFile = process.env.GOOGLE_APPLICATION_CREDENTIALS
 const calendarId = process.env.GOOGLE_CALENDAR_ID
 
