@@ -1,14 +1,17 @@
-import { google } from 'googleapis'
-import { DateTime, Interval } from 'luxon'
-
-// Polyfills for Netlify Functions compatibility
+// Polyfills must be loaded BEFORE any other imports
 import 'cross-fetch/polyfill'
 import fetch from 'node-fetch'
 import FormData from 'form-data'
 
-// Set up global fetch for googleapis
+// Set up globals immediately
 global.fetch = fetch
 global.FormData = FormData
+global.Headers = fetch.Headers
+global.Request = fetch.Request
+global.Response = fetch.Response
+
+import { google } from 'googleapis'
+import { DateTime, Interval } from 'luxon'
 
 const timezone = process.env.BUSINESS_TIMEZONE || 'America/New_York'
 const businessStartHour = parseInt(process.env.BUSINESS_START_HOUR || '10', 10)
