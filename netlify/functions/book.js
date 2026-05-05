@@ -1,6 +1,15 @@
 import { google } from 'googleapis'
 import { DateTime, Interval } from 'luxon'
 
+// Polyfills for Netlify Functions compatibility
+import 'cross-fetch/polyfill'
+import fetch from 'node-fetch'
+import FormData from 'form-data'
+
+// Set up global fetch for googleapis
+global.fetch = fetch
+global.FormData = FormData
+
 const timezone = process.env.BUSINESS_TIMEZONE || 'America/New_York'
 const businessStartHour = parseInt(process.env.BUSINESS_START_HOUR || '10', 10)
 const businessEndHour = parseInt(process.env.BUSINESS_END_HOUR || '17', 10)
@@ -42,6 +51,8 @@ async function getCalendarClient() {
 			key: serviceAccountKey,
 			scopes: calendarScopes
 		})
+		// Force token refresh to avoid caching issues
+		await auth.authorize()
 		calendar = google.calendar({ version: 'v3', auth })
 		return calendar
 	}
