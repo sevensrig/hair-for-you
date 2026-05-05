@@ -18,10 +18,17 @@ let calendar
 async function getCalendarClient() {
 	if (calendar) return calendar
 
+	const calendarScopes = [
+		'https://www.googleapis.com/auth/calendar',
+		'https://www.googleapis.com/auth/calendar.events',
+		'https://www.googleapis.com/auth/calendar.events.readonly',
+		'https://www.googleapis.com/auth/calendar.readonly'
+	]
+
 	if (credentialsKeyFile) {
 		const auth = new google.auth.GoogleAuth({
 			keyFile: credentialsKeyFile,
-			scopes: ['https://www.googleapis.com/auth/calendar.readonly']
+			scopes: calendarScopes
 		})
 		const authClient = await auth.getClient()
 		calendar = google.calendar({ version: 'v3', auth: authClient })
@@ -32,7 +39,7 @@ async function getCalendarClient() {
 		const auth = new google.auth.JWT({
 			email: serviceAccountEmail,
 			key: serviceAccountKey,
-			scopes: ['https://www.googleapis.com/auth/calendar.readonly']
+			scopes: calendarScopes
 		})
 		calendar = google.calendar({ version: 'v3', auth })
 		return calendar
@@ -69,6 +76,48 @@ function computeSlotsForDate(dateISO) {
 
 function intervalsOverlapAny(interval, intervals) {
 	return intervals.some(busy => interval.overlaps(busy))
+}
+
+function parseSlotDateTime(dateISO, timeStr) {
+	// timeStr format: "10:00 AM - 10:40 AM"
+	const [startStr, endStr] = timeStr.split(' - ')
+	const start = DateTime.fromFormat(`${dateISO} ${startStr}`, 'yyyy-MM-dd h:mm a', { zone: timezone })
+	const end = DateTime.fromFormat(`${dateISO} ${endStr}`, 'yyyy-MM-dd h:mm a', { zone: timezone })
+	return { start, end }
+}
+
+export async function bookAppointment(req, res) {
+	try {
+		const { name, email, service, date, time } = req.body
+		if (!name || !email || !service || !date || !time) {
+			return res.status(400).json({ error: 'Missing required fields: name, email, service, date, time' })
+		}
+
+		const client = await getCalendarClient()
+		if (!calendarId || !client) {
+			return res.status(503).json({ error: 'Google Calendar not configured on this server' })
+		}
+
+		const { start, end } = parseSlotDateTime(date, time)
+		if (!start.isValid || !end.isValid) {
+			return res.status(400).json({ error: 'Could not parse time slot' })
+		}
+
+		const { data } = await client.events.insert({
+			calendarId,
+			requestBody: {
+				summary: `${service} — ${name}`,
+				description: `Client: ${name}\nEmail: ${email}\nService: ${service}`,
+				start: { dateTime: start.toISO(), timeZone: timezone },
+				end: { dateTime: end.toISO(), timeZone: timezone },
+			},
+		})
+
+		return res.json({ success: true, eventId: data.id })
+	} catch (err) {
+		console.error(err)
+		return res.status(500).json({ error: 'Failed to create appointment', details: err?.message })
+	}
 }
 
 export async function getAvailableTimes(req, res) {
